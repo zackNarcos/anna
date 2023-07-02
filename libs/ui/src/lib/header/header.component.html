@@ -1,0 +1,13 @@
+<div class="header">
+  <ul class="nav">
+    <li class="nav-item" *ngFor="let link of mainMenu">
+      <a class="nav-link link.class px-2 {{link.class}}"
+         aria-current="page"
+         href="#"
+         [routerLink]="'/categories/' + link.link"
+      >
+        <span class="link-text">{{link.label}}</span>
+      </a>
+    </li>
+  </ul>
+</div>

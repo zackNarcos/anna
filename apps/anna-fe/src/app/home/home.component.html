@@ -1,0 +1,44 @@
+<div class="info-promo">
+  <img src="./../../assets/images/LIVE-TEXT_DESK_120623.webp"
+  >
+  <div class="info-promo__text">
+    <p>-40% sur tout</p>
+  </div>
+</div>
+
+<div class="subscribe-secondary">
+  <img src="./../../assets/images/Mj-Mp__4_-removebg-preview.png">
+  <div class="subscribe-secondary__text">
+    <p>Envie d'être au courant des dernières tendances et de recevoir des offres exclusives ?</p>
+  </div>
+  <div>
+    <button class="subscribe-secondary__button">S'inscrire</button>
+  </div>
+</div>
+
+<div class="info-promo">
+  <img src="./../../assets/images/DESKTOP_2_090623_FR.webp"
+  >
+  <!--<div class="info-promo__text">
+    <p>-40% sur tout</p>
+  </div>-->
+</div>
+
+<div class="categories">
+  <anna-categorie
+    *ngFor="let categorie of categories"
+    class="categories__item"
+    imageUrl="/assets/images/categories/{{categorie.imageUrl}}"
+    [title]="categorie.title"
+    path="/{{categorie.path}}"
+  ></anna-categorie>
+</div>
+
+<div class="info-promo">
+  <img src="./../../assets/images/DESKTOP_2_090623_FR.webp"
+  >
+  <!--<div class="info-promo__text">
+    <p>-40% sur tout</p>
+  </div>-->
+</div>
+

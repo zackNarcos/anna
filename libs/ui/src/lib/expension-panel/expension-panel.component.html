@@ -1,0 +1,23 @@
+<div class="panel-container ">
+  <div
+    class="header primary px-2"
+    (click)="toggle()"
+  >
+    <div class="p-0 w-100">
+      <ng-container *ngTemplateOutlet="titleRef"></ng-container>
+    </div>
+    <div class="icon">
+      <i
+        [class.fa-chevron-up]="isExpanded"
+        [class.fa-chevron-down]="!isExpanded"
+        class="fas"
+      >
+      </i>
+    </div>
+  </div>
+  <div *ngIf="isExpanded">
+    <div class="p-0 px-2 w-100 bg-light">
+      <ng-container *ngTemplateOutlet="bodyRef"></ng-container>
+    </div>
+  </div>
+</div>

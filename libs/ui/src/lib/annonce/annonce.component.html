@@ -1,0 +1,12 @@
+<div class="annonce">
+  <div id="carouselExample" class="carousel slide"data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active text-center">
+        {{ $announce[0] }}
+      </div>
+      <div class="carousel-item text-center" *ngFor="let item of $announce">
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>

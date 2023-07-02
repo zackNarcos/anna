@@ -1,0 +1,4 @@
+<div class="input d-flex align-items-center">
+  <input type="checkbox" [id]="id" [(ngModel)]="checked" (ngModelChange)="change($event)" />
+  <label [for]="id" class="px-3">{{label}}</label>
+</div>

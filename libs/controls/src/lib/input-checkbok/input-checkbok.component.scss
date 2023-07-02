@@ -1,0 +1,35 @@
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 2px solid var(--primaryAction);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:after {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f00c';
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--primaryAction);
+    display: none;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+  &:after:hover {
+    color: var(--primaryAction);
+    display: block;
+  }
+  &:checked {
+    background-color: var(--primaryAction);
+  }
+  &:checked:after {
+    color: var(--white);
+    display: block;
+  }
+}

@@ -1,0 +1,80 @@
+<div class="footer">
+  <div class="container pt-5">
+    <div class="payement my-5 d-flex justify-content-center align-items-center">
+      <div class="payement__item" *ngFor="let item of payementMethods">
+        <img [src]="item.image" [alt]="item.name">
+      </div>
+    </div>
+    <div class="footer__content">
+      <div class="footer__content__item py-3 text-center">
+        <h5 class="footer__content__item__title text-uppercase fw-bold">Encore plus ?</h5>
+        <p class="footer__content__item__text">Toutes les dernières sorties de produits, offres limitées, informations sur les événements en magasin, directement dans votre boîte de réception.</p>
+      </div>
+      <div class="footer__content__item py-2 d-flex justify-content-center text-uppercase">
+        <div class="border-bottom me-4 border-black d-flex">
+          <anna-input placeholder="Email"
+                      type="email"
+                      width="250px"
+                      [border]="false"
+          >
+          </anna-input>
+          <span class="footer__content__item__email">S'inscrire<i class="fa-solid fa-arrow-right-long ps-2"></i></span>
+        </div>
+        <div class="border-bottom me-2 border-black d-flex">
+          <anna-input placeholder="Téléphone"
+                      type="phone"
+                      width="250px"
+                      [border]="false"
+          >
+          </anna-input>
+          <span class="footer__content__item__email">S'inscrire<i class="fa-solid fa-arrow-right-long ps-2"></i></span>
+        </div>
+
+      </div>
+      <div class="py-3">
+        <p>En vous abonnant à MJ, vous consentez à recevoir un nombre variable de messages marketing par e-mail. Le consentement n'est pas une condition d'achat.</p>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="footer__content__item d-flex justify-content-center">
+          <img src="/assets/images/Mj-Mp__4_-removebg-preview.png"
+               routerLink="/"
+               alt="logo"
+               class="logo"
+          >
+          <h6 class="footer__content__item__title fw-bold px-3 text-uppercase py-4">Suivez MJ</h6>
+          <div class="footer__content__item__social py-4">
+            <a href="#" class="footer__content__item__social__link">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="footer__content__item__social__link">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="footer__content__item__social__link">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="footer__content__item__social__link">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer__content__item py-3">
+          <h5 class="footer__content__item__title text-uppercase fw-bold">Aide</h5>
+          <p class="footer__content__item__text mb-0">FAQ</p>
+          <p class="footer__content__item__text mb-0">Livraison</p>
+          <p class="footer__content__item__text mb-0">Retours</p>
+          <p class="footer__content__item__text mb-0">Suivi de commande</p>
+          <p class="footer__content__item__text mb-0">CGV</p>
+          <p class="footer__content__item__text mb-0">Politique de confidentialité</p>
+          <p class="footer__content__item__text mb-0">Politique de cookies</p>
+          <p class="footer__content__item__text mb-0">Plan du site</p>
+        </div>
+        <div class="footer__content__item py-3">
+          <h5 class="footer__content__item__title text-uppercase fw-bold">Contactez-nous</h5>
+          <p class="footer__content__item__text mb-0">customerservice@fentybeauty.com</p>
+          <p class="footer__content__item__text mb-0">1-855-440-7474</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

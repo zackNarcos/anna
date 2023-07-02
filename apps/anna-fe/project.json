@@ -16,8 +16,14 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/anna-fe/tsconfig.app.json",
         "assets": ["apps/anna-fe/src/favicon.ico", "apps/anna-fe/src/assets"],
-        "styles": ["apps/anna-fe/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/anna-fe/src/styles.scss",
+          "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        ],
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.min.js",
+          "node_modules/popper.js/dist/umd/popper.min.js"
+        ]
       },
       "configurations": {
         "production": {

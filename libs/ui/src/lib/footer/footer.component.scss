@@ -1,0 +1,30 @@
+.footer{
+  padding-bottom: 50px;
+  .payement{
+    border : 1px solid var(--border-secondary);
+    margin-top: 20px;
+    .payement__item{
+      padding: 25px 5px;
+      img{
+        width: 55px;
+        height: 34px;
+        object-fit: fill;
+        border: 1px solid var(--border-secondary);
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .footer__content__item__social__link{
+    margin-left: 13px;
+    color: var(--text-secondary);
+    i{
+      font-size: 23px;
+    }
+  }
+
+  .logo {
+    height: 60px;
+    margin: 0 10px;
+  }
+}

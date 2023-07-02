@@ -1,0 +1,23 @@
+.products-container {
+  border-top: 1px solid var(--border-secondary);
+  border-bottom: 1px solid var(--border-secondary);
+  .categories__title {
+    margin: 0;
+    padding: 0.7rem 11px;
+  }
+  .left-sidebar {
+    width: 16%;
+    float: left;
+    padding: 0;
+    border-right: 1px solid var(--border-secondary);
+  }
+  .right-content {
+    width: 84%;
+    float: left;
+    padding: 0 10px;
+  }
+
+  .size {
+    margin-bottom: 1px;
+  }
+}

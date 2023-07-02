@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
+  border-top: solid 1px var(--border-secondary);
+
+  a {
+    text-transform: uppercase;
+    .link-text {
+      color: var(--textColor) !important;
+    }
+  }
+
+  .promotions {
+    .link-text {
+      color: var(--primary) !important;
+    }
+  }
+
+}
