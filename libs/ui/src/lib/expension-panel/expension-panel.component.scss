@@ -1,6 +1,15 @@
 .panel-container {
   margin-bottom: -1px;
   padding: 0;
+
+  .body {
+    background-color: var(--white);
+    max-height: 250px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 6px 7px !important;
+  }
 }
 
 .primary {

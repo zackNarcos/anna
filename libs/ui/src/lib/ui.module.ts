@@ -8,6 +8,7 @@ import { TopHeaderComponent } from './top-header/top-header.component';
 import { ControlsModule } from '@anna/fe/controls';
 import { FooterComponent } from './footer/footer.component';
 import { ExpensionPanelComponent } from './expension-panel/expension-panel.component';
+import { AdSideBarComponent } from './ad-side-bar/ad-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ExpensionPanelComponent } from './expension-panel/expension-panel.compo
     TopHeaderComponent,
     FooterComponent,
     ExpensionPanelComponent,
+    AdSideBarComponent,
   ],
   imports: [
     CommonModule,
@@ -25,12 +27,12 @@ import { ExpensionPanelComponent } from './expension-panel/expension-panel.compo
     ControlsModule,
     RouterOutlet,
   ],
-    exports: [
-        LayoutComponent,
-        HeaderComponent,
-        AnnonceComponent,
-        TopHeaderComponent,
-        ExpensionPanelComponent,
-    ],
+  exports: [
+    LayoutComponent,
+    HeaderComponent,
+    AnnonceComponent,
+    TopHeaderComponent,
+    ExpensionPanelComponent,
+  ],
 })
 export class UiModule {}

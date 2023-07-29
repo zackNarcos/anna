@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
+  isDisplayFor = true;
   sizes = [
     { id: 1, name: '32' },
     { id: 2, name: '34' },
@@ -46,4 +47,8 @@ export class ProductsComponent {
     { id: 7, name: '60000-70000 Fcfa' },
     { id: 8, name: '70000-80000 Fcfa' }
   ];
+
+  toggleDisplay(display: number) {
+    this.isDisplayFor = display == 4;
+  }
 }

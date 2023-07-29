@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+        <h4 class="card-title"> Categories</h4>
+        <button
+          class="btn btn-primary btn-round"
+          [routerLink]="['/categories/ajouter']"
+        >
+          <i class="nc-icon nc-simple-add"></i> Ajouter
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="">
+          <table class="table">
+            <thead class=" text-primary">
+            <th>
+              #
+            </th>
+            <th>
+              Nom
+            </th>
+            <th>
+              Icone
+            </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let produit of [1,2,3,0]">
+              <td>
+                1
+              </td>
+              <td>
+                Dakota Rice
+              </td>
+              <td>
+                Oud-Turnhout
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

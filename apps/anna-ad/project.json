@@ -1,0 +1,125 @@
+{
+  "name": "anna-ad",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "anna",
+  "sourceRoot": "apps/anna-ad/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/anna-ad",
+        "index": "apps/anna-ad/src/index.html",
+        "main": "apps/anna-ad/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/anna-ad/tsconfig.app.json",
+        "assets": [
+          "apps/anna-ad/src/favicon.ico",
+          "apps/anna-ad/src/assets"
+        ],
+        "styles": [
+          "apps/anna-ad/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss",
+          "apps/anna-ad/src/assets/scss/paper-dashboard.scss",
+          "apps/anna-ad/src/assets/css/demo.css"
+        ],
+        "scripts": [
+          "node_modules/popper.js/dist/umd/popper.min.js"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "buildOptimizer": true,
+          "fileReplacements": [
+            {
+              "replace": "src/environments/environment.ts",
+              "with": "src/environments/environment.prod.ts"
+            }
+          ],
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ]
+        },
+        "development": {
+          "buildOptimizer": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "optimization": {
+            "scripts": true,
+            "styles": {
+              "minify": false,
+              "inlineCritical": true
+            },
+            "fonts": true
+          },
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "anna-ad:build:production"
+        },
+        "development": {
+          "browserTarget": "anna-ad:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "anna-ad:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/anna-ad/**/*.ts", "apps/anna-ad/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/anna-ad/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "anna-ad:build"
+      }
+    }
+  }
+}
