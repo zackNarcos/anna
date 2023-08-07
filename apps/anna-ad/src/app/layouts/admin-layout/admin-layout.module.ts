@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
@@ -13,6 +13,8 @@ import {ProductComponent} from "../../pages/product/product.component";
 import {CategoryListComponent} from "../../pages/category-list/category-list.component";
 import {CategoryFormComponent} from "../../pages/category-form/category-form.component";
 import {CategoryComponent} from "../../pages/category/category.component";
+import {AppStoreModule} from "../../store/store.module";
+import {CategoryService} from "@anna/core";
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,6 +23,8 @@ import {CategoryComponent} from "../../pages/category/category.component";
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
+    AppStoreModule,
     // NgbModule
   ],
   declarations: [
@@ -32,6 +36,9 @@ import {CategoryComponent} from "../../pages/category/category.component";
     CategoryListComponent,
     CategoryFormComponent,
     CategoryComponent,
+  ],
+  providers: [
+    CategoryService
   ]
 })
 

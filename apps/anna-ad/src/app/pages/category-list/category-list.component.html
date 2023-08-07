@@ -11,8 +11,8 @@
         </button>
       </div>
       <div class="card-body">
-        <div class="">
-          <table class="table">
+        <div>
+          <table class="table" *ngIf="categories$ | async as categories">
             <thead class=" text-primary">
             <th>
               #
@@ -20,20 +20,28 @@
             <th>
               Nom
             </th>
-            <th>
-              Icone
-            </th>
             </thead>
             <tbody>
-            <tr *ngFor="let produit of [1,2,3,0]">
+            <tr *ngFor="let category of categories; index as i; trackBy: trackByFn">
               <td>
-                1
+                {{i+1}}
               </td>
               <td>
-                Dakota Rice
+                {{category.name}}
               </td>
               <td>
-                Oud-Turnhout
+                <button
+                  class="btn btn-primary btn-round"
+                  [routerLink]="['/categories/modifier', category._id]"
+                >
+                  <i class="nc-icon nc-settings"></i>
+                </button>
+                <button
+                  class="btn btn-danger btn-round"
+                  (click)="deleteCategory(category)"
+                >
+                  <i class="nc-icon nc-simple-remove"></i>
+                </button>
               </td>
             </tr>
             </tbody>

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@anna/core": ["libs/core/src/index.ts"],
       "@anna/fe/blocs": ["libs/blocs/src/index.ts"],
       "@anna/fe/controls": ["libs/controls/src/index.ts"],
       "@anna/fe/ui": ["libs/ui/src/index.ts"]

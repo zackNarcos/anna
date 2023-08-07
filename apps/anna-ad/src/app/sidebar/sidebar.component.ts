@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {StoreService} from "../store/store.service";
+import {Router} from "@angular/router";
 
 
 export interface RouteInfo {
@@ -22,7 +24,19 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[] = [];
+
+    constructor(
+      private storeService: StoreService,
+      private router: Router
+    ) {
+    }
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
+
+  logout() {
+    localStorage.clear();
+    this.storeService.logout();
+    this.router.navigate(['/auth/login']);
+  }
 }

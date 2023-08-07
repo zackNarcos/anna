@@ -4,35 +4,49 @@
       <h5 class="card-title">Ajouter un Produit</h5>
     </div>
     <div class="card-body">
-      <form>
+      <form [formGroup]="addProductForm">
         <div class="row">
-          <div class="col-md-6 px-1">
+          <div class="col-md-6">
             <div class="form-group">
               <label>Nom</label>
-              <input type="text" class="form-control" placeholder="Nom">
+              <input type="text"
+                     class="form-control"
+                     placeholder="Nom"
+                     formControlName="name"
+              >
             </div>
           </div>
           <div class="col-md-6">
             <div class="mb-3">
               <label for="image" class="form-label">Image</label>
-              <input type="file" id="image" class="form-control form-control-sm">
+              <input type="file" id="image" class="form-control form-control-sm" formControlName="productImage">
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 pr-1">
+          <div class="col-md-5">
             <div class="form-group">
               <label>Prix</label>
-              <input type="number" class="form-control">
+              <input type="number" class="form-control" placeholder="Prix" formControlName="price">
             </div>
           </div>
-          <div class="col-md-6 pl-1">
+          <div class="col-md-5 ">
             <div class="form-group">
               <label>Categorie</label>
-              <select class="form-select">
-                <option>Choisir une categorie</option>
-                <option>...</option>
+              <select class="form-select"
+                      *ngIf="categories$ | async as categories"
+                      formControlName="category">
+                <option [value]="null">Choisir une categorie</option>
+                <option [value]="category" *ngFor="let category of categories">
+                  {{category.name}}
+                </option>
               </select>
+            </div>
+          </div>
+          <div class="col-md-2 ">
+            <div class="form-group">
+              <label>Quantité</label>
+              <input type="number" class="form-control" placeholder="Quantité" formControlName="quantity">
             </div>
           </div>
         </div>
@@ -40,13 +54,19 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Description</label>
-              <textarea class="form-control textarea"></textarea>
+              <textarea class="form-control textarea" placeholder="Description" formControlName="description">
+              </textarea>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="update ml-auto mr-auto">
-            <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
+            <button type="submit" class="btn btn-primary btn-round"
+                    (click)="onSubmit()"
+                    [disabled]="addProductForm.invalid"
+            >
+              Ajouter
+            </button>
           </div>
         </div>
       </form>

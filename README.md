@@ -51,6 +51,6 @@ nx run-many -t <target1> <target2> -p <proj1> <proj2>
 Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/core-features/run-tasks).
 
 
-add a new library to the workspace: `nx g @nrwl/angular:lib my-lib`
+add a new library to the workspace: `nx g @nrwl/angular:lib core`
 
 add a new component to the my-lib library: `nx g @nrwl/angular:component ad-side-bar --project=ui`

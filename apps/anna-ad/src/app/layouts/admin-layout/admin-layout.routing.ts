@@ -8,7 +8,10 @@ import {CategoryListComponent} from "../../pages/category-list/category-list.com
 import {CategoryFormComponent} from "../../pages/category-form/category-form.component";
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'user',           component: UserComponent },
+    {
+      path: 'user',
+      component: UserComponent
+    },
     {
       path: 'produits',
       component: ProductListComponent,
