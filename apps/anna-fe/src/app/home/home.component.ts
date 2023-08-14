@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ProductStoreService} from "../product/store/product-store.service";
 
 @Component({
   selector: 'anna-home',
@@ -28,4 +29,9 @@ export class HomeComponent {
       path: 'shoes',
     }
   ];
+  products$ = this.productStoreService.getProducts();
+  constructor(
+    private productStoreService: ProductStoreService,
+  ) {
+  }
 }

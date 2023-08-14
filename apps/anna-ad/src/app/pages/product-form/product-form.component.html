@@ -19,7 +19,12 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="image" class="form-label">Image</label>
-              <input type="file" id="image" class="form-control form-control-sm" formControlName="productImage">
+              <input type="file"
+                     id="image"
+                     class="form-control form-control-sm"
+                     formControlName="productImage"
+                     (change)="onFileSelected($event)"
+              >
             </div>
           </div>
         </div>
@@ -37,7 +42,7 @@
                       *ngIf="categories$ | async as categories"
                       formControlName="category">
                 <option [value]="null">Choisir une categorie</option>
-                <option [value]="category" *ngFor="let category of categories">
+                <option [value]="category._id" *ngFor="let category of categories">
                   {{category.name}}
                 </option>
               </select>

@@ -1,3 +1,55 @@
 <div class="products-container d-flex">
-  <router-outlet></router-outlet>
+  <div class="left-sidebar">
+    <div class="title py-0">
+      <span class="categories__title">TRIER PAR</span>
+    </div>
+    <anna-expension-panel>
+      <ng-template #title>
+        <span>TAILLE</span>
+      </ng-template>
+      <ng-template #body>
+        <div class="row px-4">
+          <div class="col-6 p-1" *ngFor="let size of sizes">
+            <anna-input-checkbok
+              [label]="size.name"
+            >
+            </anna-input-checkbok>
+          </div>
+        </div>
+      </ng-template>
+    </anna-expension-panel>
+    <anna-expension-panel>
+      <ng-template #title>
+        <span>COULEUR</span>
+      </ng-template>
+      <ng-template #body>
+        <div class="row px-4">
+          <div class="col-6 p-1" *ngFor="let size of colors">
+            <anna-input-checkbok
+              [label]="size.name"
+            >
+            </anna-input-checkbok>
+          </div>
+        </div>
+      </ng-template>
+    </anna-expension-panel>
+    <anna-expension-panel>
+      <ng-template #title>
+        <span>PRIX</span>
+      </ng-template>
+      <ng-template #body>
+        <div class="row px-4 size">
+          <div class="col-12 p-1" *ngFor="let size of prix">
+            <anna-input-checkbok
+              [label]="size.name"
+            >
+            </anna-input-checkbok>
+          </div>
+        </div>
+      </ng-template>
+    </anna-expension-panel>
+  </div>
+  <div class="right-content">
+    prods
+  </div>
 </div>

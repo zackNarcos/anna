@@ -19,15 +19,16 @@ export class ProductService {
     return this.httpClient.get<Product>(`${this.baseUrl}/product/show`);
   }
 
-  public createProduct(product: Product): Observable<Product> {
+  public createProduct(product: any): Observable<Product> {
     const formData = new FormData();
-    formData.append('category', JSON.stringify(product.category));
+    console.log('product', product)
+    formData.append('category', product.category);
     formData.append('name', product.name);
     formData.append('price', JSON.stringify(product.price));
     formData.append('description', product.description);
     formData.append('quantity', JSON.stringify(product.quantity));
     if (product.productImage) {
-      formData.append('productImage',product.productImage);
+      formData.append('productImage',product.productImage, product.productImage.name);
     }
     return this.httpClient.post<Product>(`${this.baseUrl}/product`, formData);
   }

@@ -11,22 +11,29 @@ import {Router} from "@angular/router";
 export class ProductFormComponent {
   addProductForm: FormGroup;
   categories$ = this.storeService.getCategories();
+  selectedFile!: File;
+
   constructor(
     private storeService: StoreService,
     private router: Router
   ) {
     this.addProductForm = new FormGroup<any>({
-      name: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      price: new FormControl(0, [Validators.required]),
-      productImage: new FormControl('', [Validators.required]),
-      quantity: new FormControl(0, [Validators.required]),
-      category: new FormControl(null, [Validators.required]),
+      name: new FormControl('produit', [Validators.required]),
+      description: new FormControl('desc', [Validators.required]),
+      price: new FormControl(5000, [Validators.required]),
+      productImage: new FormControl(null, [Validators.required]),
+      quantity: new FormControl(2, [Validators.required]),
+      category: new FormControl('64d01edab093386af0df5d94', [Validators.required]),
     });
   }
 
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
   onSubmit() {
-    console.log('this.addProductForm.value', this.addProductForm.value)
+    const product = this.addProductForm.value;
+    product.productImage = this.selectedFile;
     this.storeService.addProduct(this.addProductForm.value);
     this.router.navigate(['/produits']);
   }
