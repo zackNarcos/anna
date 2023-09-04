@@ -1,0 +1,9 @@
+<div class="container" *ngIf="category">
+  <div class="container__image">
+    <img src="/assets/images/categories/CATEGORYCAROUSEL_FR_CROCHET.webp" [alt]="category.name">
+  </div>
+  <div class="container__text">
+    <p>{{ category.name }}</p>
+    <p><a routerLink="/produits" class="text-decoration-none">ACHETER MAINTENANT</a></p>
+  </div>
+</div>

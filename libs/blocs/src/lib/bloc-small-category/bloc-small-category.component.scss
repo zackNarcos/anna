@@ -1,0 +1,31 @@
+.container{
+  padding: 0;
+  border: 1px solid #eaeaea;
+  .container__image{
+    width: 100%;
+    height: 100%;
+    img{
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+  .container__text{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: white;
+    p{
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #000;
+    }
+    a{
+      font-size: 1rem;
+      font-weight: 600;
+      color: #000;
+      padding-bottom: 1rem;
+      border-bottom: 4px solid var(--primary);
+    }
+  }
+}
