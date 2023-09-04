@@ -27,8 +27,10 @@ export class ProductService {
     formData.append('price', JSON.stringify(product.price));
     formData.append('description', product.description);
     formData.append('quantity', JSON.stringify(product.quantity));
-    if (product.productImage) {
-      formData.append('productImage',product.productImage, product.productImage.name);
+    if (product.productImages && product.productImages.length > 0) {
+      for (let i = 0; i < product.productImages.length; i++) {
+        formData.append('productImages', product.productImages[i]);
+      }
     }
     return this.httpClient.post<Product>(`${this.baseUrl}/product`, formData);
   }

@@ -53,4 +53,4 @@ Targets can be defined in the `package.json` or `projects.json`. Learn more [in 
 
 add a new library to the workspace: `nx g @nrwl/angular:lib core`
 
-add a new component to the my-lib library: `nx g @nrwl/angular:component ad-side-bar --project=ui`
+add a new component to the my-lib library: `nx g @nrwl/angular:component bloc-small-category --project=blocs`

@@ -33,7 +33,7 @@
             <tbody>
               <tr *ngFor="let product of products">
                 <td>
-                  <img [src]="imagesPath+product.productImage" alt="" width="70" />
+                  <img [src]="imagesPath+product.productImages[0]" alt="" width="70" height="70" style="object-fit: cover"/>
                 </td>
                 <td>
                   {{ product.name }}

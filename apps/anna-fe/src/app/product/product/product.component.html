@@ -1,1 +1,89 @@
-<p>product works!</p>
+<div *ngIf=" product" class="d-flex justify-content-center">
+  <div class="product-container">
+    <div class="col-8">
+      <!-- The expanding image container -->
+      <div class="container ">
+        <!-- Expanded image -->
+        <img id="expandedImg" [src]="backendUrl+product.productImages[0]" [alt]="product.name">
+      </div>
+
+      <!-- The grid: four columns -->
+      <div class="col-12 d-flex pt-3">
+        <div class="col-4 grid-item">
+          <img [src]="backendUrl+product.productImages[0]" [alt]="product.name" (click)="myFunction($event);">
+        </div>
+        <div class="col-4 px-3 grid-item">
+          <img [src]="backendUrl+product.productImages[1]" [alt]="product.name" (click)="myFunction($event);">
+        </div>
+        <div class="col-4 grid-item">
+          <img [src]="backendUrl+product.productImages[2]" [alt]="product.name" (click)="myFunction($event);">
+        </div>
+      </div>
+    </div>
+    <div class="col-4 p-3">
+      <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/" class="text-decoration-none">Accueil</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['produits']" class="text-decoration-none">>{{product.category.name}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{product.name}}</li>
+        </ol>
+      </nav>
+
+      <div class="product-details position-relative pe-5">
+        <h4 class="pt-3">{{product.name}}</h4>
+        <h4 class="pt-3 text-primary">{{product.price}} Fcfa</h4>
+        <div class="d-flex position-absolute top-0 end-0">
+          <button class="btn bg-primary border-0" (click)="addToWishlist(product)"><i class="fas fa-heart"></i></button>
+        </div>
+      </div>
+      <p class="pt-3">
+        COULEUR: BLANC | TAILLE: SELECTIONNEZ VOTRE TAILLE
+      </p>
+      <div class="color mb-2">
+        <div class="color-item active-item">
+        </div>
+        <div class="color-item">
+        </div>
+        <div class="color-item">
+        </div>
+      </div>
+      <div class="size">
+        <div class="size-item">
+          <span>XS</span>
+        </div>
+        <div class="size-item active-item">
+          <span>S</span>
+        </div>
+        <div class="size-item">
+          <span>M</span>
+        </div>
+        <div class="size-item">
+          <span>L</span>
+        </div>
+        <div class="size-item">
+          <span>XL</span>
+        </div>
+      </div>
+      <div class="pt-5">
+        <button class="btn bg-primary form-control py-2 border-0" (click)="addToCart(product)"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf=" product" class="d-flex justify-content-center">
+  <div class="product-container">
+    <div class="col-7 description">
+      <h4 class="title">INFORMATIONS SUR LE PRODUIT</h4>
+      <p>
+        {{product.description}}
+      </p>
+    </div>
+    <div class="col-4">
+      <h4 class="title">COMPLETEZ VOTRE LOOK</h4>
+      <anna-bloc-small-category
+        [category]="product.category"
+        [backendUrl]="backendUrl"
+      ></anna-bloc-small-category>
+    </div>
+  </div>
+</div>

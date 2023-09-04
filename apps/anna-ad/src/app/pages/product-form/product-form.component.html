@@ -6,24 +6,13 @@
     <div class="card-body">
       <form [formGroup]="addProductForm">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="form-group">
               <label>Nom</label>
               <input type="text"
                      class="form-control"
                      placeholder="Nom"
                      formControlName="name"
-              >
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="image" class="form-label">Image</label>
-              <input type="file"
-                     id="image"
-                     class="form-control form-control-sm"
-                     formControlName="productImage"
-                     (change)="onFileSelected($event)"
               >
             </div>
           </div>
@@ -63,6 +52,40 @@
               </textarea>
             </div>
           </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label for="image" class="form-label">Image 1</label>
+              <input type="file"
+                     id="image"
+                     class="form-control form-control-sm"
+                     formControlName="productImage1"
+                     (change)="onFileSelected1($event)"
+              >
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label for="image2" class="form-label">Image 2</label>
+              <input type="file"
+                     id="image2"
+                     class="form-control form-control-sm"
+                     formControlName="productImage2"
+                     (change)="onFileSelected2($event)"
+              >
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label for="image3" class="form-label">Image 3</label>
+              <input type="file"
+                     id="image3"
+                     class="form-control form-control-sm"
+                     formControlName="productImage3"
+                     (change)="onFileSelected3($event)"
+              >
+            </div>
+          </div>
+
         </div>
         <div class="row">
           <div class="update ml-auto mr-auto">

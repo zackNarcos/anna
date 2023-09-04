@@ -3,7 +3,9 @@
   <anna-top-header
     class="sticky-top"
   ></anna-top-header>
-  <anna-header></anna-header>
+  <anna-header
+    [categories]="categories"
+  ></anna-header>
   <div class="layout-content">
     <router-outlet></router-outlet>
   </div>

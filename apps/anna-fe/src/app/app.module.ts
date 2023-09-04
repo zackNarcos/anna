@@ -9,6 +9,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {ProductStoreModule} from "./product/store/product-store.module";
 import {HttpClientModule} from "@angular/common/http";
+import {CategoryStoreModule} from "./category/store/category-store.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
       trace: true, // Trace changes over time
     }),
     ProductStoreModule,
+    CategoryStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

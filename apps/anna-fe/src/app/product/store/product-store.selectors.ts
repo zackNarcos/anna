@@ -7,6 +7,10 @@ export const storeSelectorsState : MemoizedSelector<AppState, ProductStoreReduce
   = createFeatureSelector(productConfig.store.key);
 
 const selectProducts = createSelector(storeSelectorsState, (state: ProductStoreReducerState) => state.products ?? []);
+
+const selectSelectedProduct = createSelector(storeSelectorsState, (state: ProductStoreReducerState) => state.selectedProduct);
+
 export const productStoreSelectors = {
   selectProducts,
+  selectSelectedProduct,
 }

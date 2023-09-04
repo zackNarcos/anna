@@ -129,7 +129,7 @@ export class StoreEffects {
       switchMap((action: any) => {
           return this.productService.deleteProduct(action.product).pipe(
             map((data: any) => {
-              return new DeleteProductSuccessAction(data.product);
+              return new DeleteProductSuccessAction(action.product);
             }),
             catchError((err) => of(new DeleteProductFailureAction(err)))
           );

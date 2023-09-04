@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ProductStoreService} from "../product/store/product-store.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'anna-home',
@@ -32,6 +33,12 @@ export class HomeComponent {
   products$ = this.productStoreService.getProducts();
   constructor(
     private productStoreService: ProductStoreService,
+    private router: Router
   ) {
+  }
+
+  productClicked(product: any) {
+    this.productStoreService.selectProduct(product)
+    this.router.navigate(['produits', product.name])
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ProductStoreService} from "../store/product-store.service";
 
 @Component({
   selector: 'anna-products',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
   isDisplayFor = true;
+  products$ = this.productStoreService.getProducts();
+  constructor(
+    private productStoreService: ProductStoreService,
+  ) {
+  }
   sizes = [
     { id: 1, name: '32' },
     { id: 2, name: '34' },

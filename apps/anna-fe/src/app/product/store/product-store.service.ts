@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {
-  LoadProductsAction,
+  LoadProductsAction, SelectProductAction,
 } from "./product-store.actions";
 import {Product} from "@anna/core";
 import {productStoreSelectors} from "./product-store.selectors";
@@ -21,4 +21,7 @@ export class ProductStoreService {
   loadAllProducts = () => this.store.dispatch(new LoadProductsAction());
 
   getProducts = () => this.store.select(productStoreSelectors.selectProducts);
+
+  selectProduct = (product: Product) => this.store.dispatch(new SelectProductAction(product));
+  getSelectedProduct = () => this.store.select(productStoreSelectors.selectSelectedProduct);
 }

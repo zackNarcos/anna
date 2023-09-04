@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'anna-header',
@@ -6,12 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  mainMenu = [
-    { label: 'nouveautés', link: '/nouveautes', class: 'nouveautes' },
-    { label: 'vêtements', link: '/vetements', class: 'vetements' },
-    { label: 'robes', link: '/robes', class: 'robes' },
-    { label: 'tops', link: '/tops', class: 'tops' },
-    { label: 'chaussures & accessoires', link: '/chaussures', class: 'chaussures' },
-    { label: 'promotions', link: '/promotions' , class: 'promotions'}
-  ];
+  @Input() categories: any[] = [];
+
+  mainMenu: any[] = [];
+  
+  constructor() {
+    this.mainMenu = this.categories.map((category) => {
+      return {
+        label: category.name,
+        link: `/categories/${category._id}`,
+        class: 'category'
+      };
+    });
+  }
 }

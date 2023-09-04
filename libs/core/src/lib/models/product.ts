@@ -6,6 +6,7 @@ export interface Product {
   price: number;
   category: Category;
   productImage: File;
+  productImages: File[];
   quantity: number;
   createdAt?: string;
   updatedAt?: string;

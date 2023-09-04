@@ -6,6 +6,8 @@ export enum ProductStoreActionsTypes {
   LoadProductsSuccess = '[Products] Load Products Success',
   LoadProductsFailure = '[Products] Load Products Failure',
 
+  SelectProduct = '[Products] Select Product',
+
 }
 
 export class LoadProductsAction implements Action {
@@ -39,7 +41,17 @@ export class LoadProductsFailureAction implements Action {
   }
 }
 
+export class SelectProductAction implements Action {
+  readonly type = ProductStoreActionsTypes.SelectProduct;
+  readonly product: Product;
+
+  constructor(product: Product) {
+    this.product = product;
+  }
+}
+
 export type ProductStoreActions =
   LoadProductsAction
   | LoadProductsSuccessAction
   | LoadProductsFailureAction
+  | SelectProductAction

@@ -11,7 +11,7 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'categories',
+        path: 'produits',
         loadChildren: () => import('./product/product.module').then((m) => m.ProductModule),
       }
     ]
