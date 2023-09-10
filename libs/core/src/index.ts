@@ -14,3 +14,10 @@ export * from './lib/services/cart.service';
 export * from './lib/services/user.service';
 export * from './lib/services/admin.service';
 export * from './lib/services/local-storage.service';
+
+//store
+export * from './lib/store/libs-store.actions';
+export * from './lib/store/libs-store.reducer';
+export * from './lib/store/libs-store.selectors';
+export * from './lib/store/libs-store-state.interface';
+export * from './lib/store/libs-store.service';

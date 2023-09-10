@@ -1,13 +1,19 @@
-<div class="header">
+<div class="header" *ngIf="categories$ | async as categories">
   <ul class="nav">
-    <li class="nav-item" *ngFor="let link of mainMenu">
-      <a class="nav-link link.class px-2 {{link.class}}"
+    <li class="nav-item">
+      <a class="nav-link link.class px-2 all promotions"
          aria-current="page"
-         href="#"
-         [routerLink]="'/categories/' + link.link"
-          routerLinkActive="promotions"
+         (click)="selectCategory(defaultCategory)"
       >
-        <span class="link-text">{{link.label}}</span>
+        <span class="link-text">Tout</span>
+      </a>
+    </li>
+    <li class="nav-item" *ngFor="let category of categories">
+      <a class="nav-link link.class px-2 {{category.name}}"
+         aria-current="page"
+         (click)="selectCategory(category)"
+      >
+        <span class="link-text">{{category.name}}</span>
       </a>
     </li>
   </ul>

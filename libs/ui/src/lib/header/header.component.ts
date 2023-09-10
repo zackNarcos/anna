@@ -1,4 +1,6 @@
 import {Component, Input} from '@angular/core';
+import {Category, LibsStoreService} from "@anna/core";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'anna-header',
@@ -6,17 +8,19 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Input() categories: any[] = [];
+  categories$ = this.libsStoreService.getCategories();
+  defaultCategory = {
+    name: 'Tous les produits',
+  };
+  constructor(
+    private libsStoreService: LibsStoreService,
+    private router: Router
+  ) {
+  }
 
-  mainMenu: any[] = [];
-  
-  constructor() {
-    this.mainMenu = this.categories.map((category) => {
-      return {
-        label: category.name,
-        link: `/categories/${category._id}`,
-        class: 'category'
-      };
-    });
+
+  selectCategory(category: Category) {
+    this.libsStoreService.setSelectedCategory(category);
+    this.router.navigate(['produits']);
   }
 }

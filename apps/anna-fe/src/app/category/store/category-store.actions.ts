@@ -6,7 +6,6 @@ export enum CategoryStoreActionsTypes {
   LoadCategories = '[Categories] Load Categories',
   LoadCategoriesSuccess = '[Categories] Load Categories Success',
   LoadCategoriesFailure = '[Categories] Load Categories Failure',
-
 }
 
 

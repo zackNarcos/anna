@@ -33,6 +33,8 @@ export function categoryStoreReducer(state = categoryStoreInitialState, action: 
         isLoadMore: false,
         error: action.error,
       };
+
+
     default:
       return state;
   }

@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import {StoreModule} from "@ngrx/store";
-import {appReducer} from "./app.reducer";
-import {EffectsModule} from "@ngrx/effects";
-import {StoreDevtoolsModule} from "@ngrx/store-devtools";
-import {ProductStoreModule} from "./product/store/product-store.module";
-import {HttpClientModule} from "@angular/common/http";
-import {CategoryStoreModule} from "./category/store/category-store.module";
+import { StoreModule } from '@ngrx/store';
+import {appReducer, AppState} from './app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
+import {ProductStoreEffects} from "./product/store/product-store.effects";
+import {CategoryStoreEffects} from "./category/store/category-store.effects";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,20 +17,22 @@ import {CategoryStoreModule} from "./category/store/category-store.module";
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    StoreModule.forRoot(appReducer, {
+    StoreModule.forRoot(
+      appReducer, {
       runtimeChecks: {
         strictActionImmutability: false,
         strictStateImmutability: false,
-      }
+      },
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([
+      ProductStoreEffects,
+      CategoryStoreEffects,
+    ]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: false, // Restrict extension to log-only mode
       trace: true, // Trace changes over time
     }),
-    ProductStoreModule,
-    CategoryStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

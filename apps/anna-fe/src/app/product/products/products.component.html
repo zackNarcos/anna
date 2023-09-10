@@ -50,6 +50,47 @@
     </anna-expension-panel>
   </div>
   <div class="right-content">
+    <div class="card rounded-0 p-2 d-flex justify-content-center">
+      <nav aria-label="breadcrumb" class="">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item">
+            <a routerLink="/"
+            >Accueil</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a routerLink="/produits"
+            >Produits</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <span *ngIf="selectedCategory$ | async as category">
+              {{ category.name }}
+            </span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="product-header">
+      <div class="display">
+        <div class="display-button"
+              [ngClass]="{'active': isDisplayFor}"
+             (click)="toggleDisplay(4)">
+          4
+        </div>
+        <div class="display-button"
+              [ngClass]="{'active': !isDisplayFor}"
+             (click)="toggleDisplay(3)">
+          3
+        </div>
+      </div>
+      <div class="product-header__sort">
+        <span class="sort__title">Trier par</span>
+        <select class="sort__select">
+          <option value="1">Prix croissant</option>
+          <option value="2">Prix décroissant</option>
+          <option value="3">Nom</option>
+        </select>
+      </div>
+    </div>
     <div class="product-list" *ngIf="products$ | async as products">
       <div class="col-6 col-md-4 col-lg-3 product-list__item"
            *ngFor="let product of products"

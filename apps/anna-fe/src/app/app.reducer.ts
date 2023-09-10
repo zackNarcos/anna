@@ -1,8 +1,15 @@
 import { ActionReducerMap } from '@ngrx/store';
-import {ProductStoreReducerState} from "./product/store/product-store.reducer";
+import {productStoreReducer, ProductStoreReducerState} from "./product/store/product-store.reducer";
+import {libsStoreReducer, LibsStoreReducerState} from "@anna/core";
+import {categoryStoreReducer} from "./category/store/category-store.reducer";
 
 export interface AppState {
   products: ProductStoreReducerState;
+  libs: LibsStoreReducerState
 }
 
-export const appReducer: ActionReducerMap<AppState> = {} as any;
+export const appReducer: ActionReducerMap<AppState> = {
+  product: productStoreReducer,
+  libs: libsStoreReducer,
+  category: categoryStoreReducer,
+} as any;

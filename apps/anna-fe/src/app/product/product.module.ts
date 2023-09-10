@@ -6,9 +6,9 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { CategoryComponent } from '../category/category/category.component';
-import {UiModule} from "@anna/fe/ui";
-import {ControlsModule} from "@anna/fe/controls";
-import {BlocsModule} from "@anna/fe/blocs";
+import { UiModule } from '@anna/fe/ui';
+import { ControlsModule } from '@anna/fe/controls';
+import { BlocsModule } from '@anna/fe/blocs';
 
 @NgModule({
   declarations: [
@@ -17,12 +17,12 @@ import {BlocsModule} from "@anna/fe/blocs";
     SideBarComponent,
     CategoryComponent,
   ],
-    imports: [
-      CommonModule,
-      ProductRoutingModule,
-      UiModule,
-      ControlsModule,
-      BlocsModule,
-    ],
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    UiModule,
+    ControlsModule,
+    BlocsModule,
+  ],
 })
 export class ProductModule {}
