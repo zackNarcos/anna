@@ -12,6 +12,7 @@
       margin: 0;
       font-size: 1.2rem;
       font-weight: 700;
+      display: flex;
       .display-button {
         border: 1px solid var(--border-secondary);
         padding: 0.4rem 0.8rem;
@@ -62,6 +63,19 @@
     width: 84%;
     padding: 0;
 
+    .breadcrumb {
+      .breadcrumb-item {
+        a {
+          color: var(--primary);
+          text-decoration: none;
+          font-size: 1rem;
+          font-weight: 400;
+          &:hover {
+            color: var(--textColor);
+          }
+        }
+      }
+    }
     .product-list {
       display: flex;
       flex-wrap: wrap;

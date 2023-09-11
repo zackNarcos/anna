@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start:fe": "nx serve anna-fe --port 4200",
-    "start:ad": "nx serve anna-ad --port 4201"
+    "start:ad": "nx serve anna-ad --port 4201",
+    "build:lib": "nx build anna-fe"
   },
   "private": true,
   "dependencies": {

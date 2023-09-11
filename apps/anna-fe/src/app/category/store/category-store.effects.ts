@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {CategoryService} from "@anna/core";
+import {CategoryService, LibsStoreService} from "@anna/core";
 import {catchError, map, of} from "rxjs";
 import {LoadCategoriesFailureAction, LoadCategoriesSuccessAction} from "./category-store.actions";
 import {CategoryStoreActionsTypes} from "./category-store.actions";
@@ -9,6 +9,7 @@ export class CategoryStoreEffects {
   constructor(
     private actions$: Actions,
     private categoryService: CategoryService,
+    private libsStoreService: LibsStoreService,
   ) {
   }
 
@@ -18,6 +19,7 @@ export class CategoryStoreEffects {
       (() => this.categoryService.getCategories()
           .pipe(
             map((categories: any) => {
+              this.libsStoreService.setCategories(categories.categories);
               return new LoadCategoriesSuccessAction(categories.categories);
             }),
             catchError((err) => of(new LoadCategoriesFailureAction(err)))

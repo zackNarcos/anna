@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ProductStoreService} from "../store/product-store.service";
+import {LibsStoreService} from "@anna/core";
 
 @Component({
   selector: 'anna-products',
@@ -9,8 +10,10 @@ import {ProductStoreService} from "../store/product-store.service";
 export class ProductsComponent {
   isDisplayFor = true;
   products$ = this.productStoreService.getProducts();
+  selectedCategory$ = this.libsStoreService.getSelectedCategory();
   constructor(
     private productStoreService: ProductStoreService,
+    private libsStoreService: LibsStoreService
   ) {
   }
   sizes = [
