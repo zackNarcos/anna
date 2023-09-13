@@ -9,6 +9,7 @@ import { CategoryComponent } from '../category/category/category.component';
 import { UiModule } from '@anna/fe/ui';
 import { ControlsModule } from '@anna/fe/controls';
 import { BlocsModule } from '@anna/fe/blocs';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { BlocsModule } from '@anna/fe/blocs';
     SideBarComponent,
     CategoryComponent,
   ],
-  imports: [
-    CommonModule,
-    ProductRoutingModule,
-    UiModule,
-    ControlsModule,
-    BlocsModule,
-  ],
+    imports: [
+        CommonModule,
+        ProductRoutingModule,
+        UiModule,
+        ControlsModule,
+        BlocsModule,
+        ReactiveFormsModule,
+    ],
 })
 export class ProductModule {}

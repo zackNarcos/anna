@@ -8,9 +8,12 @@ export const storeSelectorsState : MemoizedSelector<AppState, ProductStoreReduce
 
 const selectProducts = createSelector(storeSelectorsState, (state: ProductStoreReducerState) => state.products ?? []);
 
+const selectfilteredProducts = createSelector(storeSelectorsState, (state: ProductStoreReducerState) => state.filteredProducts);
+
 const selectSelectedProduct = createSelector(storeSelectorsState, (state: ProductStoreReducerState) => state.selectedProduct);
 
 export const productStoreSelectors = {
   selectProducts,
   selectSelectedProduct,
+  selectfilteredProducts
 }

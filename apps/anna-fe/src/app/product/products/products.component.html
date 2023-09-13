@@ -96,10 +96,11 @@
       </div>
       <div class="product-header__sort">
         <span class="sort__title">Trier par</span>
-        <select class="sort__select">
-          <option value="1">Prix croissant</option>
-          <option value="2">Prix décroissant</option>
-          <option value="3">Nom</option>
+        <select class="sort__select" [formControl]="sortControl">
+          <option [value]="sortEnum.ASC">Prix croissant</option>
+          <option [value]="sortEnum.DESC">Prix décroissant</option>
+          <option [value]="sortEnum.NAME">Nom</option>
+          <option [value]="sortEnum.NEWEST">Nouveauté</option>
         </select>
       </div>
     </div>

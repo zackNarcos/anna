@@ -6,6 +6,10 @@ export * from './lib/models/product';
 // export * from './lib/models/cart';
 // export * from './lib/models/user';
 export * from './lib/models/admin';
+export * from './lib/models/filtersProducts';
+
+//enums
+export * from './lib/enums/sortEnum';
 
 //services
 export * from './lib/services/category.service';

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ProductStoreService} from "../store/product-store.service";
-import {LibsStoreService} from "@anna/core";
+import {LibsStoreService, SortEnum} from "@anna/core";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'anna-products',
@@ -9,12 +10,17 @@ import {LibsStoreService} from "@anna/core";
 })
 export class ProductsComponent {
   display = 3;
-  products$ = this.productStoreService.getProducts();
+  products$ = this.productStoreService.getFilteredProducts();
   selectedCategory$ = this.libsStoreService.getSelectedCategory();
+  sortEnum = SortEnum;
+  sortControl: FormControl = new FormControl(SortEnum.NEWEST);
   constructor(
     private productStoreService: ProductStoreService,
     private libsStoreService: LibsStoreService
   ) {
+    this.sortControl.valueChanges.subscribe((value) => {
+      this.filterProducts();
+    });
   }
   sizes = [
     { id: 1, name: '32' },
@@ -59,5 +65,17 @@ export class ProductsComponent {
 
   toggleDisplay(display: number) {
     this.display = display;
+  }
+
+  filterProducts() {
+    const filter = {
+      size: [],
+      color: [],
+      price: '',
+      sort: this.sortControl.value,
+      name: '',
+      category: null
+    };
+    this.productStoreService.setFilterProducts(filter);
   }
 }

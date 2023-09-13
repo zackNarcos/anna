@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {
-  LoadProductsAction, SelectProductAction,
+  LoadProductsAction, SelectProductAction, SetFilteredProductsAction, SetFilterProductsAction,
 } from "./product-store.actions";
-import {Product} from "@anna/core";
+import {FiltersProducts, Product} from "@anna/core";
 import {productStoreSelectors} from "./product-store.selectors";
 import {AppState} from "../../app.reducer";
 
@@ -22,6 +22,12 @@ export class ProductStoreService {
 
   getProducts = () => this.store.select(productStoreSelectors.selectProducts);
 
+  getFilteredProducts = () => this.store.select(productStoreSelectors.selectfilteredProducts);
+
   selectProduct = (product: Product) => this.store.dispatch(new SelectProductAction(product));
   getSelectedProduct = () => this.store.select(productStoreSelectors.selectSelectedProduct);
+
+  setFilteredProducts = (products: Product[]) => this.store.dispatch(new SetFilteredProductsAction(products));
+
+  setFilterProducts = (filter: FiltersProducts) => this.store.dispatch(new SetFilterProductsAction(filter));
 }

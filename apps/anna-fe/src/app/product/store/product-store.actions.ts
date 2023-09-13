@@ -1,4 +1,4 @@
-import {Product} from "@anna/core";
+import {FiltersProducts, Product} from "@anna/core";
 import {Action} from "@ngrx/store";
 
 export enum ProductStoreActionsTypes {
@@ -8,6 +8,9 @@ export enum ProductStoreActionsTypes {
 
   SelectProduct = '[Products] Select Product',
 
+  SetFilterProducts = '[Products] Set Filter Products',
+
+  SetFilreredProducts = '[Products] Set Filtered Products',
 }
 
 export class LoadProductsAction implements Action {
@@ -50,8 +53,20 @@ export class SelectProductAction implements Action {
   }
 }
 
-export type ProductStoreActions =
-  LoadProductsAction
-  | LoadProductsSuccessAction
-  | LoadProductsFailureAction
-  | SelectProductAction
+export class SetFilterProductsAction implements Action {
+  readonly type = ProductStoreActionsTypes.SetFilterProducts;
+  readonly filter: FiltersProducts;
+
+  constructor(filter: FiltersProducts) {
+    this.filter = filter;
+  }
+}
+
+export class SetFilteredProductsAction implements Action {
+  readonly type = ProductStoreActionsTypes.SetFilreredProducts;
+  readonly products: Product[];
+
+  constructor(products: Product[]) {
+    this.products = products;
+  }
+}
