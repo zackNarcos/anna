@@ -70,16 +70,28 @@
       </nav>
     </div>
     <div class="product-header">
-      <div class="display">
+      <div class="display d-none d-md-flex">
         <div class="display-button"
-              [ngClass]="{'active': isDisplayFor}"
+              [ngClass]="{'active': display === 4}"
              (click)="toggleDisplay(4)">
           4
         </div>
         <div class="display-button"
-              [ngClass]="{'active': !isDisplayFor}"
+              [ngClass]="{'active': display === 3 || display === 2 || display === 1}"
              (click)="toggleDisplay(3)">
           3
+        </div>
+      </div>
+      <div class="display d-md-none">
+        <div class="display-button"
+              [ngClass]="{'active': display === 2 || display === 3 || display === 4}"
+             (click)="toggleDisplay(2)">
+          2
+        </div>
+        <div class="display-button"
+              [ngClass]="{'active': display === 1}"
+             (click)="toggleDisplay(1)">
+          1
         </div>
       </div>
       <div class="product-header__sort">
@@ -92,7 +104,13 @@
       </div>
     </div>
     <div class="product-list" *ngIf="products$ | async as products">
-      <div class="col-6 col-md-4 col-lg-3 product-list__item"
+      <div class="product-list__item"
+           [ngClass]="{
+            'col-12': display === 1,
+            'col-6': display === 2 || display === 3 || display === 4,
+            'col-md-4': display === 3 || display === 2 || display === 1,
+            'col-md-3': display === 4
+           }"
            *ngFor="let product of products"
       >
         <anna-bloc-product

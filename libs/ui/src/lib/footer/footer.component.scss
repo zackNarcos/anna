@@ -15,13 +15,25 @@
     }
   }
 
-  .footer__content__item__social__link{
-    margin-left: 13px;
-    color: var(--text-secondary);
-    i{
-      font-size: 23px;
+  .footer__content__item{
+
+    .footer__content__item__social__link{
+      margin-left: 13px;
+      color: var(--text-secondary);
+      i{
+        font-size: 23px;
+      }
+    }
+
+    .footer__content__item__text{
+      //margin-top: 10px;
+      //color: var(--text-secondary);
+      //wrap text anywhere
+      word-wrap: anywhere;
     }
   }
+
+
 
   .logo {
     height: 60px;

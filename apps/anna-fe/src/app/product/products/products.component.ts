@@ -8,7 +8,7 @@ import {LibsStoreService} from "@anna/core";
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
-  isDisplayFor = true;
+  display = 3;
   products$ = this.productStoreService.getProducts();
   selectedCategory$ = this.libsStoreService.getSelectedCategory();
   constructor(
@@ -58,6 +58,6 @@ export class ProductsComponent {
   ];
 
   toggleDisplay(display: number) {
-    this.isDisplayFor = display == 4;
+    this.display = display;
   }
 }
