@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ProductStoreService} from "../store/product-store.service";
-import {LibsStoreService, SortEnum} from "@anna/core";
+import {Category, LibsStoreService, SortEnum} from "@anna/core";
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -18,8 +18,13 @@ export class ProductsComponent {
     private productStoreService: ProductStoreService,
     private libsStoreService: LibsStoreService
   ) {
+    this.selectedCategory$.subscribe((category) => {
+      this.filterProducts(category);
+    });
     this.sortControl.valueChanges.subscribe((value) => {
-      this.filterProducts();
+      this.selectedCategory$.subscribe((category) => {
+        this.filterProducts(category);
+      });
     });
   }
   sizes = [
@@ -67,15 +72,16 @@ export class ProductsComponent {
     this.display = display;
   }
 
-  filterProducts() {
+  filterProducts(category: Category) {
     const filter = {
       size: [],
       color: [],
       price: '',
       sort: this.sortControl.value,
       name: '',
-      category: null
+      category: category
     };
+    console.log('category',filter)
     this.productStoreService.setFilterProducts(filter);
   }
 }

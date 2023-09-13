@@ -1,5 +1,5 @@
 export * from './lib/core.module';
-
+export * from './lib/core.config';
 //models
 export * from './lib/models/category';
 export * from './lib/models/product';

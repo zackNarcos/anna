@@ -1,4 +1,5 @@
 import {Category, LibsStoreActionsEnum} from "@anna/core";
+import {coreConfig} from "../core.config";
 
 export interface LibsStoreReducerState {
   categories: Category[],
@@ -9,7 +10,7 @@ export interface LibsStoreReducerState {
 export const libsStoreInitialState: LibsStoreReducerState = {
   categories: [],
   selectedCategory: {
-    name: 'Tous les produits',
+    name: coreConfig.allCategories
   },
   error:null
 }

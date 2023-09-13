@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Category, LibsStoreService} from "@anna/core";
+import {Category, coreConfig, LibsStoreService} from "@anna/core";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent {
   categories$ = this.libsStoreService.getCategories();
   defaultCategory = {
-    name: 'Tous les produits',
+    name: coreConfig.allCategories,
   };
   constructor(
     private libsStoreService: LibsStoreService,

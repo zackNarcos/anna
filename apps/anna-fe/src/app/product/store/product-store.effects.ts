@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {ProductService, SortEnum} from "@anna/core";
+import {coreConfig, ProductService, SortEnum} from "@anna/core";
 import {
   LoadProductsFailureAction, LoadProductsSuccessAction,
   ProductStoreActionsTypes, SetFilteredProductsAction,
@@ -37,6 +37,16 @@ export class ProductStoreEffects {
             map((products: any) => {
               const filter = action.filter;
               let filteredProducts = products;
+
+              if (filter.category) {
+                filteredProducts = filteredProducts
+                  .filter((product: any) => {
+                    if (filter.category.name === coreConfig.allCategories)
+                      return true;
+                    return product.category.name === filter.category.name
+                  });
+              }
+
               if (filter.sort) {
                 filteredProducts = filteredProducts.sort((a: any, b: any) => {
                   if (filter.sort === SortEnum.NEWEST) {
