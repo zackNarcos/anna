@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {AppState} from "../app.reducer";
 import {Store} from "@ngrx/store";
 import {
-  AddCategoryAction, AddProductAction, DeleteCategoryAction, DeleteProductAction,
+  AddCategoryAction, AddProductAction, AddProductSuccessAction, DeleteCategoryAction, DeleteProductAction,
   LoadCategoriesAction,
   LoadProductsAction, LogoutAction, SetAdminAction,
   UpdateCategoryAction,
@@ -42,6 +42,8 @@ export class StoreService {
   addProduct = (product: Product) => this.store.dispatch(new AddProductAction(product));
 
   addCategory = (category: Category) => this.store.dispatch(new AddCategoryAction(category));
+
+  addProductSuccess = (product: Product) => this.store.dispatch(new AddProductSuccessAction(product));
 
   getCategories = () => this.store.select(storeSelectors.selectCategories);
 

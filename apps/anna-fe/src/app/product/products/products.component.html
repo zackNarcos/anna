@@ -99,7 +99,8 @@
         <select class="sort__select" [formControl]="sortControl">
           <option [value]="sortEnum.ASC">Prix croissant</option>
           <option [value]="sortEnum.DESC">Prix décroissant</option>
-          <option [value]="sortEnum.NAME">Nom</option>
+          <option [value]="sortEnum.NAME_ASC">Nom croissant</option>
+          <option [value]="sortEnum.NAME_DESC">Nom décroissant</option>
           <option [value]="sortEnum.NEWEST">Nouveauté</option>
         </select>
       </div>

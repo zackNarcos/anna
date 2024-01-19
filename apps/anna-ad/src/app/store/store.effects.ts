@@ -98,14 +98,12 @@ export class StoreEffects {
   addProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(StoreActionsTypes.AddProduct),
-      switchMap((action: any) =>
-        this.productService.createProduct(action.product).pipe(
-          map((data: any) => {
-            return new AddProductSuccessAction(data.product);
-          }),
-          catchError((err) => of(new AddProductFailureAction(err)))
-        )
+      map((action: any) =>
+        new AddProductSuccessAction(action.product)
       )
+      //   return this.storeService.addProduct(action.product).pipe(
+      //
+      // )
     )
   );
 

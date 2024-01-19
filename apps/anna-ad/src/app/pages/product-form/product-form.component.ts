@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {StoreService} from "../../store/store.service";
 import {Router} from "@angular/router";
+import {ProductService} from "@anna/core";
 
 @Component({
   selector: 'anna-product-form',
@@ -14,10 +15,13 @@ export class ProductFormComponent {
   selectedFile1!: File;
   selectedFile2!: File;
   selectedFile3!: File;
+  wrongData = false;
+  wrongDataMessage = 'Une erreur est survenue lors de la création du produit';
 
   constructor(
     private storeService: StoreService,
-    private router: Router
+    private router: Router,
+    private productService: ProductService
   ) {
     this.addProductForm = new FormGroup<any>({
       name: new FormControl('produit', [Validators.required]),
@@ -27,7 +31,7 @@ export class ProductFormComponent {
       productImage2: new FormControl(null, [Validators.required]),
       productImage3: new FormControl(null, [Validators.required]),
       quantity: new FormControl(2, [Validators.required]),
-      category: new FormControl('64d01edab093386af0df5d94', [Validators.required]),
+      category: new FormControl(null, [Validators.required]),
     });
   }
 
@@ -47,8 +51,17 @@ export class ProductFormComponent {
     const productImages = [this.selectedFile1, this.selectedFile2, this.selectedFile3];
     const product = this.addProductForm.value;
     product.productImages = productImages;
-    this.storeService.addProduct(this.addProductForm.value);
-    this.router.navigate(['/produits']);
+    this.productService.createProduct(product).subscribe((data:any) => {
+      console.log(data);
+      if (data['error']) {
+        this.wrongData = true;
+        this.wrongDataMessage = data['error'];
+      } else {
+        this.wrongData = false;
+        this.storeService.addProduct(product);
+        this.router.navigate(['/produits']);
+      }
+    })
   }
 
 }
