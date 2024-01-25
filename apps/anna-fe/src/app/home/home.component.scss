@@ -1,8 +1,15 @@
 .info-promo {
+  position: relative;
   img{
     width: 100%;
-    height: 100%;
+    height: 25rem;
     object-fit: cover;
+  }
+
+  &.info-promo-2 {
+    img{
+      height: 30rem;
+    }
   }
 
   .info-promo__text {
@@ -12,8 +19,8 @@
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    font-size: 6.5rem;
-    font-weight: 800;
+    font-size: 5rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     width: 100%;
@@ -91,7 +98,8 @@
   flex-wrap: wrap;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 0 1rem;
+  padding: 1rem;
+  background: var(--primaryBackground) !important;
 
   .categories__item {
     width: 23%;
@@ -99,7 +107,7 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     &:hover {
-      transform: scale(1.1);
+      transform: scale(0.9);
     }
   }
 }
@@ -119,7 +127,7 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     &:hover {
-      transform: scale(1.1);
+      transform: scale(0.9);
     }
   }
 }

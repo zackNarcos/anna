@@ -2,10 +2,35 @@
     <div class="product__image">
         <img [src]="imagePath+product.productImages[0]" alt="{{ product.name }}">
     </div>
-    <div class="product__name">
+    <div class="d-flex align-items-center justify-content-between pe-3">
+      <div class="product__name">
         {{ product.name }}
+      </div>
+      <div class="product__stock" *ngIf="product.quantity > 0">
+        Disponible
+        <i class="fas fa-check-circle" style="color: #4CD964"></i>
+      </div>
+      <div class="product__stock--unavailable" *ngIf="product.quantity === 0">
+        En précommande
+        <i class="fas fa-times-circle"></i>
+      </div>
     </div>
-    <div class="product__price">
+    <div class="d-flex align-items-center pe-3 justify-content-between">
+      <div class="product__price">
         {{ product.price }}
+      </div>
+      <div class="product__whatsapp">
+        <a href="https://wa.me/33612345678?text=Bonjour%2C%20je%20souhaite%20plus%20d%27informations%20sur%20le%20produit%20{{ product.name }}%20%3A%20{{ product.description }}" target="_blank">
+          <i class="fab fa-whatsapp fs-3"
+             style="color: #4CD964"
+          ></i>
+        </a>
+      </div>
+    </div>
+    <div class="product__state new" *ngIf="product.state">
+        {{ StateEnum.NEW }}
+    </div>
+    <div class="product__state used" *ngIf="!product.state">
+        {{ StateEnum.USED }}
     </div>
 </div>

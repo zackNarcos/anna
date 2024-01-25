@@ -37,7 +37,7 @@
         </div>
       </div>
       <p class="pt-3">
-        COULEUR: BLANC | TAILLE: SELECTIONNEZ VOTRE TAILLE
+        COULEUR: BLANC
       </p>
       <div class="color mb-2">
         <div class="color-item active-item">
@@ -47,25 +47,8 @@
         <div class="color-item">
         </div>
       </div>
-      <div class="size">
-        <div class="size-item">
-          <span>XS</span>
-        </div>
-        <div class="size-item active-item">
-          <span>S</span>
-        </div>
-        <div class="size-item">
-          <span>M</span>
-        </div>
-        <div class="size-item">
-          <span>L</span>
-        </div>
-        <div class="size-item">
-          <span>XL</span>
-        </div>
-      </div>
       <div class="pt-5">
-        <button class="btn bg-primary form-control py-2 border-0" (click)="addToCart(product)"><i class="fas fa-shopping-cart"></i> Ajouter au panier</button>
+        <button class="btn bg-primary form-control py-2 border-0" (click)="addToCart(product)"><i class="fa-brands fa-whatsapp"></i> Commander</button>
       </div>
     </div>
   </div>
@@ -79,10 +62,10 @@
       </p>
     </div>
     <div class="col-4">
-      <h4 class="title">COMPLETEZ VOTRE LOOK</h4>
+      <h4 class="title">DANS LA MÊME CATÉGORIE</h4>
       <anna-bloc-small-category
         [category]="product.category"
-        [backendUrl]="backendUrl"
+        [backendUrl]="backendUrlCat"
       ></anna-bloc-small-category>
     </div>
   </div>
@@ -93,4 +76,6 @@
     <p>Le produit que vous recherchez n'existe pas.</p>
     <hr>
     <p class="mb-0">Veuillez réessayer.</p>
+  </div>
 </div>
+```

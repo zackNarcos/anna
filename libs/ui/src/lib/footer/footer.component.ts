@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import {InputComponent} from "@anna/fe/controls";
 
 @Component({
   selector: 'anna-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
+  standalone: true,
+  imports: [
+    InputComponent
+  ]
 })
 export class FooterComponent {
   payementMethods = [

@@ -1,23 +1,22 @@
 <div class="info-promo">
-  <img src="./../../assets/images/LIVE-TEXT_DESK_120623.webp"
-  >
+  <img src="./../../assets/images/img_1.png" alt="">
   <div class="info-promo__text">
-    <p>-40% sur tout</p>
+    <p>Iphone 15 Disponible a prix réduit</p>
   </div>
 </div>
 
 <div class="subscribe-secondary">
-  <img src="./../../assets/images/Mj-Mp__4_-removebg-preview.png">
+  <img src="../../assets/images/logok.jpg">
   <div class="subscribe-secondary__text">
-    <p>Envie d'être au courant des dernières tendances et de recevoir des offres exclusives ?</p>
+    <p>Envie d'être au courant des dernières nouveauté et de recevoir des offres exclusives ?</p>
   </div>
   <div>
     <button class="subscribe-secondary__button">S'inscrire</button>
   </div>
 </div>
 
-<div class="info-promo">
-  <img src="./../../assets/images/DESKTOP_2_090623_FR.webp"
+<div class="info-promo info-promo-2">
+  <img src="./../../assets/images/img_2.png"
   >
   <!--<div class="info-promo__text">
     <p>-40% sur tout</p>
@@ -29,27 +28,60 @@
     *ngFor="let categorie of categories"
     class="categories__item"
     imageUrl="/assets/images/categories/{{categorie.imageUrl}}"
-    [title]="categorie.title"
+    [title]="categorie.name"
     path="/{{categorie.path}}"
+    (click)="selectCategory(categorie)"
   ></anna-categorie>
 </div>
 
-<div class="info-promo">
-  <img src="./../../assets/images/DESKTOP_2_090623_FR.webp"
-  >
-  <!--<div class="info-promo__text">
-    <p>-40% sur tout</p>
-  </div>-->
-</div>
 
-<div class="product-list" *ngIf="products$ | async as products">
+<!--<div class="product-list" *ngIf="products$ | async as products">-->
+<div class="product-list">
   <div class="col-6 col-md-4 col-lg-3 product-list__item"
-       *ngFor="let product of products"
+       *ngFor="let product1 of [1,2,3,4,5,6,7,8,9,10]"
   >
     <anna-bloc-product
-      [product]="product"
-      (click)="productClicked(product)"
+      [product]="produit"
+      (click)="productClicked(produit)"
     ></anna-bloc-product>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

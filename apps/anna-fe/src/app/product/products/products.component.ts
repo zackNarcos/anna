@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {ProductStoreService} from "../store/product-store.service";
-import {Category, LibsStoreService, SortEnum} from "@anna/core";
+import {Category, LibsStoreService, SortEnum, StateEnum} from "@anna/core";
 import {FormControl} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'anna-products',
@@ -16,7 +17,8 @@ export class ProductsComponent {
   sortControl: FormControl = new FormControl(SortEnum.NEWEST);
   constructor(
     private productStoreService: ProductStoreService,
-    private libsStoreService: LibsStoreService
+    private libsStoreService: LibsStoreService,
+    private router: Router,
   ) {
     this.selectedCategory$.subscribe((category) => {
       this.filterProducts(category);
@@ -27,46 +29,29 @@ export class ProductsComponent {
       });
     });
   }
-  sizes = [
-    { id: 1, name: '32' },
-    { id: 2, name: '34' },
-    { id: 3, name: '36' },
-    { id: 4, name: '38' },
-    { id: 5, name: '40' },
-    { id: 6, name: '42' },
-    { id: 7, name: '44' },
-    { id: 8, name: '46' },
-    { id: 9, name: '48' },
-    { id: 10, name: '50' },
-    { id: 11, name: '52' },
-    { id: 12, name: '54' },
-    { id: 13, name: '56' },
+
+  categories = [
+    { id: 1, name: 'Telephone' },
+    { id: 2, name: 'Ordinateur' },
+    { id: 3, name: 'Tablette' },
+    { id: 4, name: 'Accessoire' },
+    { id: 5, name: 'Autre' },
   ];
 
-  colors = [
-    { id: 1, name: 'Blanc' },
-    { id: 2, name: 'Noir' },
-    { id: 3, name: 'Bleu' },
-    { id: 4, name: 'Rouge' },
-    { id: 5, name: 'Vert' },
-    { id: 6, name: 'Jaune' },
-    { id: 7, name: 'Orange' },
-    { id: 8, name: 'Violet' },
-    { id: 9, name: 'Rose' },
-    { id: 10, name: 'Marron' },
-    { id: 11, name: 'Gris' },
-  ];
-
-  prix = [
-    { id: 1, name: '0-10000 Fcfa' },
-    { id: 2, name: '10000-20000 Fcfa' },
-    { id: 3, name: '20000-30000 Fcfa' },
-    { id: 4, name: '30000-40000 Fcfa' },
-    { id: 5, name: '40000-50000 Fcfa' },
-    { id: 6, name: '50000-60000 Fcfa' },
-    { id: 7, name: '60000-70000 Fcfa' },
-    { id: 8, name: '70000-80000 Fcfa' }
-  ];
+  produit = {
+    _id: 1,
+    price: 5000,
+    productImages: [
+      "img.png",
+      "img_1.jpeg",
+      "img_2.jpeg",
+    ],
+    quantity: 2,
+    category: this.categories[0],
+    name: "Iphone 12",
+    description: "desc",
+    state: StateEnum.NEW,
+  }
 
   toggleDisplay(display: number) {
     this.display = display;
@@ -83,5 +68,10 @@ export class ProductsComponent {
     };
     console.log('category',filter)
     this.productStoreService.setFilterProducts(filter);
+  }
+
+  productClicked(product: any) {
+    this.productStoreService.selectProduct(product)
+    this.router.navigate(['produits', product.name])
   }
 }

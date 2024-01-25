@@ -6,6 +6,28 @@
   margin-left: -1px;
   margin-right: -1px;
   background-color: var(--white);
+  position: relative;
+
+  .product__state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 5px;
+    margin: 1rem;
+    background-color:  transparentize(green, 0.9);
+    color: var(--bs-success);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid var(--bs-success);
+    border-radius: 5px;
+
+    &.used {
+      background-color: transparentize(blue, 0.9);
+      color: var(--bs-primary);
+      border: 1px solid var(--bs-primary);
+    }
+  }
 
   .product__image {
     height: 270px;

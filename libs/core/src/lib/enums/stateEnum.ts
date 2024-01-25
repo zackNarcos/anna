@@ -1,16 +1,5 @@
 
-export enum SortEnum {
-  NEWEST = 'NEWEST',
-  OLDEST = 'OLDEST',
-  ASC = 'ASC',
-  DESC = 'DESC',
-  NAME_ASC = 'NAME_ASC',
-  NAME_DESC = 'NAME_DESC',
-  CATEGORY_ASC = 'CATEGORY_ASC',
-  CATEGORY_DESC = 'CATEGORY_DESC',
-  COLOR_ASC = 'COLOR_ASC',
-  COLOR_DESC = 'COLOR_DESC',
-  SIZE_ASC = 'SIZE_ASC',
-  SIZE_DESC = 'SIZE_DESC',
-  DEFAULT = 'DEFAULT',
+export enum StateEnum {
+  NEW = 'NEUF',
+  USED = 'OCCASION',
 }

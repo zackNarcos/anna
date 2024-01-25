@@ -1,10 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
   selector: 'anna-input-checkbok',
   templateUrl: './input-checkbok.component.html',
   styleUrls: ['./input-checkbok.component.scss'],
+  standalone: true,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -12,6 +13,9 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
       multi: true,
     },
   ],
+  imports: [
+    FormsModule
+  ]
 })
 export class InputCheckbokComponent implements ControlValueAccessor {
   @Input() id = 'checkbox' + Math.random().toString(36).substring(7);

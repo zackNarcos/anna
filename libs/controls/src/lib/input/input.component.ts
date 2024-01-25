@@ -1,10 +1,16 @@
 import {Component, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'anna-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    NgClass
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

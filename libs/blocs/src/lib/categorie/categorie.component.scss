@@ -5,10 +5,46 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  position: relative;
 
   img {
     width: 100%;
-    height: 500px;
+    height: 400px;
     object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .category__title {
+    background: rgba(255, 93, 93, 0.43);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    //width: 100%;
+    //margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 80%;
+    //animation: changeColor 1s ease-in 2s infinite;
+    animation:  2s 0s infinite changeColor;
+  }
+  @keyframes changeColor {
+    0% {
+      color: var(--textColor);
+    }
+    50% {
+      color: white;
+    }
+    100% {
+      color: var(--primary);
+    }
   }
 }
+
+

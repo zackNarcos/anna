@@ -1,5 +1,4 @@
-export * from './lib/core.module';
-export * from './lib/core.config';
+export {coreConfig} from './lib/core.config';
 //models
 export * from './lib/models/category';
 export * from './lib/models/product';
@@ -10,6 +9,11 @@ export * from './lib/models/filtersProducts';
 
 //enums
 export * from './lib/enums/sortEnum';
+export * from './lib/enums/stateEnum';
+
+//types
+export * from './lib/types/sortType';
+export * from './lib/types/stateType';
 
 //services
 export * from './lib/services/category.service';

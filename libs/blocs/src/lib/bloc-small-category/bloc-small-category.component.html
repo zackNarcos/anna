@@ -1,6 +1,7 @@
 <div class="container" *ngIf="category">
   <div class="container__image">
-    <img src="/assets/images/categories/CATEGORYCAROUSEL_FR_CROCHET.webp" [alt]="category.name">
+    <img [src]="backendUrl + category.imageUrl"
+         [alt]="category.name">
   </div>
   <div class="container__text">
     <p>{{ category.name }}</p>

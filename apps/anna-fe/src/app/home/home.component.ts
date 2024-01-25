@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ProductStoreService} from "../product/store/product-store.service";
 import {Router} from "@angular/router";
+import {Category, LibsStoreService} from "@anna/core";
 
 @Component({
   selector: 'anna-home',
@@ -10,31 +11,54 @@ import {Router} from "@angular/router";
 export class HomeComponent {
   categories =  [
     {
-      title: 'Hauts',
-      imageUrl: 'CATEGORYCAROUSEL_FR_TOPS_9.webp',
-      path: 'tops',
+      id: 1,
+      name: 'Téléphone',
+      imageUrl: 'img.png',
+      path: 'telephone',
     },
     {
-      title: 'Robes',
-      imageUrl: 'CATEGORYCAROUSEL_FR_DRESSES_10.webp',
-      path: 'robes',
+      id: 2,
+      name: 'Tablette',
+      imageUrl: 'img_1.png',
+      path: 'tablette',
     },
     {
-      title: 'tendances crochets',
-      imageUrl: 'CATEGORYCAROUSEL_FR_CROCHET.webp',
-      path: 'jeans',
+      id: 3,
+      name: 'Ordinateur',
+      imageUrl: 'img_2.png',
+      path: 'ordinateur',
     },
     {
-      title: 'Jupes',
-      imageUrl: 'CATEGORYCAROUSEL_FR_SHOES_2.webp',
-      path: 'shoes',
+      id: 4,
+      name: 'Accessoires',
+      imageUrl: 'img_3.png',
+      path: 'accessoires',
     }
   ];
+  produit = {
+    _id: 1,
+    price: 5000,
+    productImages: [
+      "img.png",
+      "img_1.jpeg",
+      "img_2.jpeg",
+    ],
+    quantity: 2,
+    category: this.categories[0],
+    name: "Iphone 12",
+    description: "desc"
+  }
   products$ = this.productStoreService.getProducts();
   constructor(
     private productStoreService: ProductStoreService,
-    private router: Router
+    private router: Router,
+    private libsStoreService: LibsStoreService,
   ) {
+  }
+
+  selectCategory(category: Category) {
+    this.libsStoreService.setSelectedCategory(category);
+    this.router.navigate(['produits']);
   }
 
   productClicked(product: any) {

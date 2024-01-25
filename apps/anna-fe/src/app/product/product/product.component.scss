@@ -76,7 +76,20 @@
       margin: 0 5px;
       cursor: pointer;
       border: 1px solid #ccc;
+      border-radius: 50%;
       background-color: red;
+
+      &:first-child{
+        background-color: darkblue;
+      }
+
+      &:nth-child(2){
+        background-color: green;
+      }
+
+      &:nth-child(3){
+        background-color: yellow;
+      }
     }
   }
 
@@ -107,12 +120,12 @@
     &:after{
       background-image: linear-gradient(to right,black 0px 27px,white 20px 30px);
       content: "";
-      height: 30px;
+      height: 43px;
       left: 5px;
       top: 4px;
       position: absolute;
       transform: rotate(45deg) translate(-30px);
-      width: 30px;
+      width: 37px;
     }
   }
 
